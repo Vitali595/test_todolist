@@ -5,7 +5,7 @@ import {CustomButton} from "../customButton/CustomButton";
 import {Modal} from "../modal/Modal";
 import {TaskForm} from "./TaskForm";
 
-export function ChangeTask({changeTask, removeTask, task}) {
+export const ChangeTask = React.memo(({changeTask, removeTask, task}) => {
     const history = useHistory();
     const {id} = useParams();
     const [formData, setFormData] = useState({});
@@ -65,4 +65,4 @@ export function ChangeTask({changeTask, removeTask, task}) {
             </TaskForm>
         </>
     );
-}
+});

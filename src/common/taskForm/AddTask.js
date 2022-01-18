@@ -3,7 +3,7 @@ import style from "./TaskForm.module.css";
 import {CustomButton} from "../customButton/CustomButton";
 import {TaskForm} from "./TaskForm";
 
-export function AddTask({addTask}) {
+export const AddTask = React.memo(({addTask}) => {
     return (
         <TaskForm taskHandler={addTask} values={{name: '', description: ''}}>
             <div className={style.button}>
@@ -11,4 +11,4 @@ export function AddTask({addTask}) {
             </div>
         </TaskForm>
     );
-}
+});

@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {CustomButton} from "../../common/customButton/CustomButton";
 import {Modal} from "../../common/modal/Modal";
 
-export function TaskItem({task, removeTask}) {
+export const TaskItem = React.memo(({task, removeTask}) => {
     const {id, name, description} = task;
 
     const [modal, setModal] = useState(false);
@@ -40,4 +40,4 @@ export function TaskItem({task, removeTask}) {
             </div>
         </>
     );
-}
+});

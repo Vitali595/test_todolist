@@ -17,4 +17,4 @@ export const Tasks = React.memo(({tasks, removeTaskHandler}) => {
             }
         </div>
     );
-})
+});

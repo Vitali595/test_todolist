@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useCallback} from "react";
 import style from "./Todolist.module.css";
 import {AddTask} from "../common/taskForm/AddTask";
 import {Redirect, Route, Switch} from "react-router-dom";
@@ -13,14 +13,14 @@ export function Todolist() {
         setTasks(getLocalStorage() || []);
     }, [])
 
-    const removeTaskHandler = (taskId) => {
+    const removeTaskHandler = useCallback((taskId) => {
         const filteredTasks = tasks.filter(({id}) => +id !== +taskId);
 
         setTasks(filteredTasks);
         setLocalStorage(filteredTasks);
-    };
+    }, [tasks]);
 
-    const addTaskHandler = (name, description) => {
+    const addTaskHandler = useCallback((name, description) => {
         const newTask = {
             id: randomNumber(),
             name,
@@ -29,14 +29,14 @@ export function Todolist() {
 
         setTasks([...tasks, newTask]);
         setLocalStorage([...tasks, newTask]);
-    };
+    }, [tasks]);
 
-    const changeTaskHandler = (changedTask) => {
+    const changeTaskHandler = useCallback((changedTask) => {
         const changedTasks = tasks.map(el => +el.id === +changedTask.id ? changedTask : el);
 
         setTasks(changedTasks);
         setLocalStorage(changedTasks);
-    };
+    }, [tasks]);
 
     return (
         <>
@@ -65,5 +65,5 @@ export function Todolist() {
                 </Switch>
             </div>
         </>
-    )
+    );
 }

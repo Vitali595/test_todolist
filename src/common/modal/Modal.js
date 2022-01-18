@@ -1,8 +1,7 @@
 import React, {useEffect} from "react";
 import style from "./Modal.module.css";
 
-export const Modal = ({title = "", footer = "", onClose}) => {
-
+export function Modal({title = "", footer = "", onClose}) {
     const onKeydown = ({key}) => {
         switch (key) {
             case "Escape": {
@@ -12,7 +11,7 @@ export const Modal = ({title = "", footer = "", onClose}) => {
             default:
                 return;
         }
-    }
+    };
 
     useEffect(() => {
         document.addEventListener("keydown", onKeydown);
@@ -28,5 +27,5 @@ export const Modal = ({title = "", footer = "", onClose}) => {
                 </div>
             </div>
         </React.Fragment>
-    )
+    );
 }
