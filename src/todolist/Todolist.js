@@ -65,5 +65,5 @@ export function Todolist() {
                 </Switch>
             </div>
         </>
-    );
+    )
 }
