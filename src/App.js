@@ -9,6 +9,8 @@ function App() {
             <div className={style.app}>
                 <Todolist/>
                 <>nj</>
+                <>nj</>
+                <>nj</>
             </div>
         </HashRouter>
     </>
