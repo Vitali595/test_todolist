@@ -47,6 +47,7 @@ export function Todolist() {
                     </Route>
                     <Route exact path="/todolist">
                         <>
+                            <></>
                             <AddTask addTask={addTaskHandler}/>
                             <Tasks tasks={tasks} removeTaskHandler={removeTaskHandler}/>
                         </>
